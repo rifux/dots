@@ -44,7 +44,7 @@ alias etfl="eza -aTf --icons always --level"
 
 # Improve UX of 'mkdir'
 function mkdir
-    command mkdir -pv $argv | command bat --language bash -p
+    command mkdir -pv $argv | command bat --language bash -n --pager cat
 end
 
 # Make single dir & move into it
