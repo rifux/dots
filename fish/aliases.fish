@@ -28,8 +28,13 @@ end
 
 # View the help text of an entered command using 'bat'
 function gethelp
-    eval "$argv --help | bat --language man -p"
+    if test (count $argv) -gt 0
+        eval "$argv --help | bat --language man -p"
+    end
+    command echo -e "gethelp: No programm specified to get help from.\n\nUsage example: gethelp whoami"
+    return 1
 end
+alias 0h="gethelp"
 
 # Improved 'eza' aliases
 alias el="eza -balo --no-permissions --icons always"
